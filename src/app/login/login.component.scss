@@ -1,301 +1,557 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+}
+
+.wave{
+  position: fixed;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
 .container{
-   display: flex;
-    width: 100%;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-}
-* {
-    box-sizing: border-box;
-  }
-  
-  .flex-container {
-    width: 95%;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-  }
-  
-  .flex-item-left {
-    padding: 50px;
-    flex: 50%;
-  }
-  
-  .flex-item-right {
-    padding: 50px;
-    flex: 30%;
-  }
-  .mat-form-field  {
-    width: 100%;
-  }
-  button{
-    width: 100%;
-  }
-
-  .div-form{
-    border-radius: 5px;
-    background-color: rgba(249, 245, 245, 0.7);
-    padding: 30px;
-  }
-  .form{
-    // border: 1px solid black;
-    width: 100%;
-  }
-
-.area{
-    background: #4e54c8;  
-    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
-    width: 100%;
-    height:100vh;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 7rem;
+  padding: 0 2rem;
 }
 
-.circles{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 90%;
-    overflow: hidden;
+.img{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.circles li{
-    position: absolute;
-    display: block;
-    list-style: none;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    animation: animate 25s linear infinite;
-    bottom: -150px;
-    
+.img img{
+  width: 500px;
 }
 
-.circles li:nth-child(1){
-    left: 25%;
-    width: 80px;
-    height: 80px;
-    animation-delay: 0s;
+.login-container{
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 
-
-.circles li:nth-child(2){
-    left: 10%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 2s;
-    animation-duration: 12s;
+form{
+  width: 360px;
 }
 
-.circles li:nth-child(3){
-    left: 70%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 4s;
+.avatar{
+  width: 100px;
 }
 
-.circles li:nth-child(4){
-    left: 40%;
-    width: 60px;
-    height: 60px;
-    animation-delay: 0s;
-    animation-duration: 18s;
+form h2{
+  font-size: 2.9rem;
+  text-transform: uppercase;
+  margin: 15px 0;
+  color: #037971;
 }
 
-.circles li:nth-child(5){
-    left: 65%;
-    width: 20px;
-    height: 20px;
-    animation-delay: 0s;
+.input-div{
+  position: relative;
+  display: grid;
+  grid-template-columns: 7% 93%;
+  margin: 25px 0;
+  padding: 5px;
+  // border-bottom: 2px solid #037971;
+  border-bottom: transparent;
 }
 
-.circles li:nth-child(6){
-    left: 75%;
-    width: 110px;
-    height: 110px;
-    animation-delay: 3s;
-}
-
-.circles li:nth-child(7){
-    left: 35%;
-    width: 150px;
-    height: 150px;
-    animation-delay: 7s;
-}
-
-.circles li:nth-child(8){
-    left: 50%;
-    width: 25px;
-    height: 25px;
-    animation-delay: 15s;
-    animation-duration: 45s;
-}
-
-.circles li:nth-child(9){
-    left: 20%;
-    width: 15px;
-    height: 15px;
-    animation-delay: 2s;
-    animation-duration: 35s;
-}
-
-.circles li:nth-child(10){
-    left: 85%;
-    width: 150px;
-    height: 150px;
-    animation-delay: 0s;
-    animation-duration: 11s;
-}
-
-
-
-@keyframes animate {
-
-    0%{
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-        border-radius: 0;
-    }
-
-    100%{
-        transform: translateY(-1000px) rotate(720deg);
-        opacity: 0;
-        border-radius: 50%;
-    }
-
-}
-
-
-    //input outline color
-    ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-        color: black!important;
-        // opacity: 1!important;
-      }
-      //mat-input focused color
-      ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-        color: blue!important;
-      }
-    
-      // mat-input error outline color
-      ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
-        color: red!important;
-        opacity: 0.8!important;
-      }
-    
-      ::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.7em 0px !important;}
-      ::ng-deep .mat-form-field-label-wrapper { top: -1.2em; }
-    
-      ::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
-          transform: translateY(-1.1em) scale(.75);
-          width: 133.33333%;
-      }
-
-      .loader {
+.input-div:after, .input-div:before{
+  content: '';
   position: absolute;
-  width: 54px;
-  height: 54px;
-  margin: 0 40%;
-  border-radius: 10px;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #38d39f;
+  transition: .3s;
 }
 
-.loader div {
-  width: 8%;
-  height: 24%;
-  background: rgb(128, 128, 128);
-  position: absolute;
+.input-div:after{
+  right: 50%;
+}
+
+.input-div:before{
   left: 50%;
-  top: 30%;
-  opacity: 0;
-  border-radius: 50px;
-  box-shadow: 0 0 3px rgba(0,0,0,0.2);
-  animation: fade458 1s linear infinite;
 }
 
-@keyframes fade458 {
-  from {
-    opacity: 1;
+.input-div.focus .i i{
+  color: #38d39f;
+}
+
+.input-div.focus div h5{
+  top: -5px;
+  font-size: 15px;
+  color: #38d39f;
+}
+
+.input-div.focus:after, .input-div.focus:before{
+  width: 50%;
+}
+
+.input-div.one{
+  margin-top: 0;
+}
+
+.input-div.two{
+  margin-bottom: 4px;
+}
+
+.i{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.i i{
+  color: #037971;
+  transition: .3s;
+}
+
+.input-div > div{
+  position: relative;
+  height: 45px;
+}
+
+.input-div > div h5{
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #2b817b;
+  font-size: 18px;
+  transition: .3s;
+}
+
+.input{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0.5rem 0.7rem;
+  font-size: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  color: #555;
+}
+
+a{
+  display: block;
+  text-align: right;
+  text-decoration: none;
+  color: #999;
+  font-size: 0.9rem;
+  transition: .3s;
+}
+
+a:hover{
+  color: #037971;
+}
+
+.btn{
+  display: block;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  background-size: 200%;
+  transition: .5s;
+}
+
+.btn:hover{
+  background-position: right;
+}
+
+.mat-form-field  {
+    width: 100%;
+}
+
+ //input outline color
+ ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: black!important;
+  // opacity: 1!important;
+}
+//mat-input focused color
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: blue!important;
+}
+
+// mat-input error outline color
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+  color: red!important;
+  opacity: 0.8!important;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.7em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.2em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+}
+
+
+
+.no-border-hover .mat-form-field-ripple {
+  display: none;
+}
+
+@media screen and (max-width: 1050px){
+  .container{
+      grid-gap: 5rem;
+  }
+}
+
+@media screen and (max-width: 1000px){
+  form{
+      width: 290px;
   }
 
-  to {
-    opacity: 0.25;
+  form h2{
+      font-size: 2.4rem;
+      margin: 8px;
+  }
+
+  .img img{
+      width: 400px;
   }
 }
 
-.loader .bar1 {
-  transform: rotate(0deg) translate(0, -130%);
-  animation-delay: 0s;
-  margin-left: -20%;
-}
-
-.loader .bar2 {
-  transform: rotate(30deg) translate(0, -130%);
-  animation-delay: -1.1s;
-  margin-left: -20%;
-}
-
-.loader .bar3 {
-  transform: rotate(60deg) translate(0, -130%);
-  animation-delay: -1s;
-  margin-left: -20%;
-}
-
-.loader .bar4 {
-  transform: rotate(90deg) translate(0, -130%);
-  animation-delay: -0.9s;
-  margin-left: -20%;
-}
-
-.loader .bar5 {
-  transform: rotate(120deg) translate(0, -130%);
-  animation-delay: -0.8s;
-  margin-left: -20%;
-}
-
-.loader .bar6 {
-  transform: rotate(150deg) translate(0, -130%);
-  animation-delay: -0.7s;
-  margin-left: -20%;
-}
-
-.loader .bar7 {
-  transform: rotate(180deg) translate(0, -130%);
-  animation-delay: -0.6s;
-  margin-left: -20%;
-}
-
-.loader .bar8 {
-  transform: rotate(210deg) translate(0, -130%);
-  animation-delay: -0.5s;
-  margin-left: -20%;
-}
-
-.loader .bar9 {
-  transform: rotate(240deg) translate(0, -130%);
-  animation-delay: -0.4s;
-  margin-left: -20%;
-}
-
-.loader .bar10 {
-  transform: rotate(270deg) translate(0, -130%);
-  animation-delay: -0.3s;
-  margin-left: -20%;
-}
-
-.loader .bar11 {
-  transform: rotate(300deg) translate(0, -130%);
-  animation-delay: -0.2s;
-  margin-left: -20%;
-}
-
-.loader .bar12 {
-  transform: rotate(330deg) translate(0, -130%);
-  animation-delay: -0.1s;
-  margin-left: -20%;
-}
-
-
-  /* Responsive layout - makes a one column-layout instead of a two-column layout */
-@media (max-width: 768px) {
-    .flex-item-right, .flex-item-left {
-      flex: 100%;
-    }
+@media screen and (max-width: 900px){
+  .img{
+      display: none;
   }
+
+  .container{
+      grid-template-columns: 1fr;
+  }
+
+  .wave{
+      display: none;
+  }
+
+  .login-container{
+      justify-content: center;
+  }
+}
+// .container{
+//    display: flex;
+//     width: 100%;
+//     height: 100vh;
+//     align-items: center;
+//     justify-content: center;
+// }
+// * {
+//     box-sizing: border-box;
+//   }
+  
+//   .flex-container {
+//     width: 95%;
+//     display: flex;
+//     flex-wrap: wrap;
+//     text-align: center;
+//   }
+  
+//   .flex-item-left {
+//     padding: 50px;
+//     flex: 50%;
+//   }
+  
+//   .flex-item-right {
+//     padding: 50px;
+//     flex: 30%;
+//   }
+//   .mat-form-field  {
+//     width: 100%;
+//   }
+//   button{
+//     width: 100%;
+//   }
+
+//   .div-form{
+//     border-radius: 5px;
+//     background-color: rgba(249, 245, 245, 0.7);
+//     padding: 30px;
+//   }
+//   .form{
+//     // border: 1px solid black;
+//     width: 100%;
+//   }
+
+// .area{
+//     background: #4e54c8;  
+//     background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+//     width: 100%;
+//     height:100vh;
+// }
+
+// .circles{
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 90%;
+//     overflow: hidden;
+// }
+
+// .circles li{
+//     position: absolute;
+//     display: block;
+//     list-style: none;
+//     width: 20px;
+//     height: 20px;
+//     background: rgba(255, 255, 255, 0.2);
+//     animation: animate 25s linear infinite;
+//     bottom: -150px;
+    
+// }
+
+// .circles li:nth-child(1){
+//     left: 25%;
+//     width: 80px;
+//     height: 80px;
+//     animation-delay: 0s;
+// }
+
+
+// .circles li:nth-child(2){
+//     left: 10%;
+//     width: 20px;
+//     height: 20px;
+//     animation-delay: 2s;
+//     animation-duration: 12s;
+// }
+
+// .circles li:nth-child(3){
+//     left: 70%;
+//     width: 20px;
+//     height: 20px;
+//     animation-delay: 4s;
+// }
+
+// .circles li:nth-child(4){
+//     left: 40%;
+//     width: 60px;
+//     height: 60px;
+//     animation-delay: 0s;
+//     animation-duration: 18s;
+// }
+
+// .circles li:nth-child(5){
+//     left: 65%;
+//     width: 20px;
+//     height: 20px;
+//     animation-delay: 0s;
+// }
+
+// .circles li:nth-child(6){
+//     left: 75%;
+//     width: 110px;
+//     height: 110px;
+//     animation-delay: 3s;
+// }
+
+// .circles li:nth-child(7){
+//     left: 35%;
+//     width: 150px;
+//     height: 150px;
+//     animation-delay: 7s;
+// }
+
+// .circles li:nth-child(8){
+//     left: 50%;
+//     width: 25px;
+//     height: 25px;
+//     animation-delay: 15s;
+//     animation-duration: 45s;
+// }
+
+// .circles li:nth-child(9){
+//     left: 20%;
+//     width: 15px;
+//     height: 15px;
+//     animation-delay: 2s;
+//     animation-duration: 35s;
+// }
+
+// .circles li:nth-child(10){
+//     left: 85%;
+//     width: 150px;
+//     height: 150px;
+//     animation-delay: 0s;
+//     animation-duration: 11s;
+// }
+
+
+
+// @keyframes animate {
+
+//     0%{
+//         transform: translateY(0) rotate(0deg);
+//         opacity: 1;
+//         border-radius: 0;
+//     }
+
+//     100%{
+//         transform: translateY(-1000px) rotate(720deg);
+//         opacity: 0;
+//         border-radius: 50%;
+//     }
+
+// }
+
+
+//     //input outline color
+//     ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+//         color: black!important;
+//         // opacity: 1!important;
+//       }
+//       //mat-input focused color
+//       ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+//         color: blue!important;
+//       }
+    
+//       // mat-input error outline color
+//       ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+//         color: red!important;
+//         opacity: 0.8!important;
+//       }
+    
+//       ::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.7em 0px !important;}
+//       ::ng-deep .mat-form-field-label-wrapper { top: -1.2em; }
+    
+//       ::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+//           transform: translateY(-1.1em) scale(.75);
+//           width: 133.33333%;
+//       }
+
+//       .loader {
+//   position: absolute;
+//   width: 54px;
+//   height: 54px;
+//   margin: 0 40%;
+//   border-radius: 10px;
+// }
+
+// .loader div {
+//   width: 8%;
+//   height: 24%;
+//   background: rgb(128, 128, 128);
+//   position: absolute;
+//   left: 50%;
+//   top: 30%;
+//   opacity: 0;
+//   border-radius: 50px;
+//   box-shadow: 0 0 3px rgba(0,0,0,0.2);
+//   animation: fade458 1s linear infinite;
+// }
+
+// @keyframes fade458 {
+//   from {
+//     opacity: 1;
+//   }
+
+//   to {
+//     opacity: 0.25;
+//   }
+// }
+
+// .loader .bar1 {
+//   transform: rotate(0deg) translate(0, -130%);
+//   animation-delay: 0s;
+//   margin-left: -20%;
+// }
+
+// .loader .bar2 {
+//   transform: rotate(30deg) translate(0, -130%);
+//   animation-delay: -1.1s;
+//   margin-left: -20%;
+// }
+
+// .loader .bar3 {
+//   transform: rotate(60deg) translate(0, -130%);
+//   animation-delay: -1s;
+//   margin-left: -20%;
+// }
+
+// .loader .bar4 {
+//   transform: rotate(90deg) translate(0, -130%);
+//   animation-delay: -0.9s;
+//   margin-left: -20%;
+// }
+
+// .loader .bar5 {
+//   transform: rotate(120deg) translate(0, -130%);
+//   animation-delay: -0.8s;
+//   margin-left: -20%;
+// }
+
+// .loader .bar6 {
+//   transform: rotate(150deg) translate(0, -130%);
+//   animation-delay: -0.7s;
+//   margin-left: -20%;
+// }
+
+// .loader .bar7 {
+//   transform: rotate(180deg) translate(0, -130%);
+//   animation-delay: -0.6s;
+//   margin-left: -20%;
+// }
+
+// .loader .bar8 {
+//   transform: rotate(210deg) translate(0, -130%);
+//   animation-delay: -0.5s;
+//   margin-left: -20%;
+// }
+
+// .loader .bar9 {
+//   transform: rotate(240deg) translate(0, -130%);
+//   animation-delay: -0.4s;
+//   margin-left: -20%;
+// }
+
+// .loader .bar10 {
+//   transform: rotate(270deg) translate(0, -130%);
+//   animation-delay: -0.3s;
+//   margin-left: -20%;
+// }
+
+// .loader .bar11 {
+//   transform: rotate(300deg) translate(0, -130%);
+//   animation-delay: -0.2s;
+//   margin-left: -20%;
+// }
+
+// .loader .bar12 {
+//   transform: rotate(330deg) translate(0, -130%);
+//   animation-delay: -0.1s;
+//   margin-left: -20%;
+// }
+
+
+//   /* Responsive layout - makes a one column-layout instead of a two-column layout */
+// @media (max-width: 768px) {
+//     .flex-item-right, .flex-item-left {
+//       flex: 100%;
+//     }
+//   }

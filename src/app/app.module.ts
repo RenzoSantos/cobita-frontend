@@ -8,14 +8,16 @@ import { LoginComponent } from './login/login.component';
 import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModules } from './materials.module.ts/materials.module';
-import { RegisterComponent } from './register/register.component';
+import { AdminComponent } from './admin/admin.component';
+import { StudentComponent } from './student/student.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    AdminComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
