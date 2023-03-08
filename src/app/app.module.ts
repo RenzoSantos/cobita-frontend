@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModules } from './materials.module.ts/materials.module';
 import { AdminComponent } from './admin/admin.component';
 import { StudentComponent } from './student/student.component';
+import { TeacherComponent } from './teacher/teacher.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { StudentComponent } from './student/student.component';
     AppComponent,
     LoginComponent,
     AdminComponent,
-    StudentComponent
+    StudentComponent,
+    TeacherComponent
   ],
   imports: [
     BrowserModule,

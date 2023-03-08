@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res.token);
         localStorage.setItem('user', JSON.stringify(res.user));
         // console.log(sessionStorage.getItem('user'));
-        this.router.navigate(['student']);
+        this.router.navigate(['admin']);
       },(error: any)=>{
         this.isloading = false;
         alert('Wrong Credentials');
@@ -49,6 +49,4 @@ export class LoginComponent implements OnInit {
   register(){
     this.router.navigateByUrl('admin/register');
   }
-
-  
 }
