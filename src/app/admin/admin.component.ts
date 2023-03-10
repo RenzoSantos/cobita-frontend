@@ -38,6 +38,7 @@ export class AdminComponent implements OnInit {
     this.router.navigateByUrl('login');
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('user_type');
       }
 })
   }

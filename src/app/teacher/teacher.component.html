@@ -1,1 +1,40 @@
-<p>teacher works!</p>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+      <mat-toolbar>Cobita</mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item routerLink="dashboard" routerLinkActive="is-active">Dashboard</a>
+        <mat-divider  > </mat-divider>
+        <a mat-list-item routerLink="teacher-ide" routerLinkActive="is-active">IDE</a>
+        <mat-divider  > </mat-divider>
+        <a mat-list-item routerLink="activities" routerLinkActive="is-active">Activities</a>
+        <mat-divider  > </mat-divider>
+        <a mat-list-item routerLink="student-list" routerLinkActive="is-active">Student</a>
+        <mat-divider  > </mat-divider>
+
+        <a mat-list-item  routerLinkActive="is-active" (click)="logout()">Logout</a>
+        <mat-divider  > </mat-divider>
+        
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span class="example-spacer"></span>
+        <span> Admin</span>
+      </mat-toolbar>
+      <!-- Add Content Here -->
+      <div class="container"> 
+      <router-outlet></router-outlet>
+    </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

@@ -5,12 +5,13 @@
         [opened]="(isHandset$ | async) === false">
       <mat-toolbar>Cobita</mat-toolbar>
       <mat-nav-list>
-        <a mat-list-item routerLink="dashboard" routerLinkActive="is-active">Dashboard</a>
+        <a mat-list-item routerLink="home" routerLinkActive="is-active">Dashboard</a>
         <mat-divider  > </mat-divider>
-        <a mat-list-item routerLink="dashboard" routerLinkActive="is-active">Activities</a>
+        <a mat-list-item routerLink="student-ide" routerLinkActive="is-active">IDE</a>
         <mat-divider  > </mat-divider>
-
-        <a mat-list-item  routerLinkActive="is-active">Logout</a>
+        <a mat-list-item routerLink="activity" routerLinkActive="is-active">Activity</a>
+        <mat-divider  > </mat-divider>
+        <a mat-list-item  routerLinkActive="is-active" (click)="logout()">Logout</a>
         <mat-divider  > </mat-divider>
         
       </mat-nav-list>
@@ -27,8 +28,10 @@
         <span class="example-spacer"></span>
         <span> Admin</span>
       </mat-toolbar>
+      <div class="content-container"> 
       <!-- Add Content Here -->
       <router-outlet></router-outlet>
+    </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
   

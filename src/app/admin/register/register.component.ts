@@ -38,6 +38,7 @@ export class RegisterComponent implements OnInit {
 
   login(){
     this.isloading = true;
+    this.formGroup.patchValue({user_type: 'Admin'})
     if(this.formGroup.valid){
       this.http.postrequest('register', '', this.formGroup.value).subscribe((res: any)=>{
         // console.log(res);

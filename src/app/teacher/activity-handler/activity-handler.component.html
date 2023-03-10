@@ -1,0 +1,51 @@
+
+<div class="container">
+    <div class="flex-container">
+    
+        <div class="flex-item-right">
+            <div class="div-form">
+            <form [formGroup]="formGroup" ngNativeValidate class="form">      
+    
+                    <mat-form-field appearance="outline" >
+    
+                        <mat-label>Activity:</mat-label>
+                        <input matInput type="text" class="example-right-align" formControlName="activity">
+                      </mat-form-field>
+                    
+                    <mat-form-field appearance="outline" >
+                           <mat-label>Instruction:</mat-label>
+                           <input matInput type="text" class="example-right-align" formControlName="detail">
+                        </mat-form-field>
+
+                 <mat-form-field appearance="outline" >                     
+                        <mat-label>Output:</mat-label>
+                        <input matInput type="text" class="example-right-align" formControlName="output">
+                      </mat-form-field>
+                    
+                    <mat-form-field appearance="outline" >
+                           <mat-label>Score:</mat-label>
+                           <input matInput type="text" class="example-right-align" formControlName="score">
+                        </mat-form-field>
+                    
+                    <button mat-raised-button color="primary" [disabled]="formGroup.invalid || isloading" [style.visibility]="isloading ? 'hidden' : 'visible'" class="btn" color="primary" (click)=" CreatePost()">
+                        <div class="loader" *ngIf="isloading">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar5"></div>
+                            <div class="bar6"></div>
+                            <div class="bar7"></div>
+                            <div class="bar8"></div>
+                            <div class="bar9"></div>
+                            <div class="bar10"></div>
+                            <div class="bar11"></div>
+                            <div class="bar12"></div>
+                        </div>
+                        {{editButton}}</button>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+    

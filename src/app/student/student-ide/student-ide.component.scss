@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  mat-card{
+    margin-top: 10px;
+  }
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .flex-item-left {
+    margin-left: -26%;
+    flex: 50%;
+  }
+  .flex-item-right {
+    padding-left: 8%;
+    flex: 50%;
+  }
+
+  .flex-container-ide {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 30px;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .flex-item-left-ide {
+    flex: 65%;
+  }
+  .flex-item-right-ide {
+    flex: 30%;
+  }
+  .card-ide{
+    border: .5px solid #000;
+    height: 240%;
+  }
+  .card-code{
+    border: .5px solid #000;
+    height: 117%;
+  }
+  
+  /* Responsive layout - makes a one column-layout instead of a two-column layout */
+  @media (max-width: 800px) {
+    .flex-item-right, .flex-item-left {
+      flex: 100%;
+    }
+    .flex-item-right-ide, .flex-item-left-ide {
+        flex: 100%;
+      }
+  }

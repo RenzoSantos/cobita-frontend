@@ -35,12 +35,29 @@ export class LoginComponent implements OnInit {
         // console.log(res);
         this.isloading = false;
         localStorage.setItem('token', res.token);
-        localStorage.setItem('user', JSON.stringify(res.user));
+        localStorage.setItem('user_type', res.user.user_type); 
+        localStorage.setItem('user', JSON.stringify(res.user.user_type)); 
+
+        switch (res.user.user_type) {
+          case 'Admin':
+            this.router.navigate(['admin']);
+            break;
+          case 'teacher':
+            this.router.navigate(['teacher']);
+            break;
+          case 'student':
+            this.router.navigate(['student']);
+            break;
+          default:
+            alert('Invalid username or password');
+            break;
+        }
+
         // console.log(sessionStorage.getItem('user'));
-        this.router.navigate(['admin']);
+      
       },(error: any)=>{
         this.isloading = false;
-        alert('Wrong Credentials');
+        alert('Invalid username or password');  
         console.log(error)
       })
     }
