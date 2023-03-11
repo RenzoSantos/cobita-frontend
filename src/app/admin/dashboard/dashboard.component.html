@@ -1,5 +1,5 @@
-<mat-card>
-    <mat-card-title>Dashboard</mat-card-title>
+<mat-card class="card-table">
+    <mat-card-title align="center">Dashboard</mat-card-title>
 </mat-card>
 
 <div class="flex-container">
@@ -16,19 +16,20 @@
 </div>
 
   
-  <mat-card> 
+  <mat-card class="card-table"> 
 
     <div class="flex-container-post">
-      <div class="flex-item-left-post">
-          <mat-form-field appearance="outline"   class="search">
-              <mat-icon matPrefix>search</mat-icon> 
-              <mat-label>Search</mat-label>
-              <input matInput (keyup)="applyFilter($event)" #input>
-            </mat-form-field>     
+      <div class="flex-item-left-post"> 
+            <h1>Announcement</h1> 
       </div>
       <div class="flex-item-right-post"> 
-          <button mat-raised-button color="primary" (click)="CreatePost()">New Announcement
-          </button>
+          <!-- <button mat-raised-button color="primary" (click)="CreatePost()">New Announcement
+          </button> -->
+          <mat-form-field appearance="outline"   class="search">
+            <mat-icon matPrefix>search</mat-icon> 
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" #input>
+          </mat-form-field>   
       </div>
     </div>
     

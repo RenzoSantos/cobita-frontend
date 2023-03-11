@@ -1,9 +1,9 @@
-<mat-card>
-    <mat-card-title>Announcement</mat-card-title>
+<mat-card class="card-table">
+    <mat-card-title>To do list</mat-card-title>
 </mat-card>
 
 <div class="flex-container">
-    <mat-card class="flex-item-left" *ngFor="let item of post" style="padding: 20px;">
+    <mat-card class="flex-item-left card-table" *ngFor="let item of post" style="padding: 20px;">
         <mat-card-title style="font-size: 30px;">{{item.title}} </mat-card-title>
         <mat-card-content style="margin-left: 70px; font-size: 20px;">{{item.text}}</mat-card-content>
     </mat-card>
