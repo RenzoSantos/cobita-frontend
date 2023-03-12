@@ -71,7 +71,7 @@ export class ActivitiesComponent implements OnInit {
 
   ShowActivity(){
     this.http.getrequest('ShowActivity', '', '').subscribe((res:any)=>{
-      console.log(res);
+      // console.log(res);
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
     })
@@ -107,5 +107,9 @@ export class ActivitiesComponent implements OnInit {
       }
 })
 
+  }
+
+  Answer(id: any){
+    this.router.navigateByUrl('teacher/student-answer/'+id);
   }
 }

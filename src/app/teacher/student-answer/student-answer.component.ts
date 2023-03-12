@@ -4,20 +4,19 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
 import Swal from 'sweetalert2';
-import { SubmitActComponent } from '../submit-act/submit-act.component';
-
-
+import { ScoreComponent } from '../score/score.component';
 
 @Component({
-  selector: 'app-activity',
-  templateUrl: './activity.component.html',
-  styleUrls: ['./activity.component.scss']
+  selector: 'app-student-answer',
+  templateUrl: './student-answer.component.html',
+  styleUrls: ['./student-answer.component.scss']
 })
-export class ActivityComponent implements OnInit {
-  displayedColumns: string[] = [ 'number', 'activity','detail','output','points','score','action',];
+export class StudentAnswerComponent implements OnInit {
+
+  displayedColumns: string[] = [ 'number', 'activity','student','points','score','action',];
 
   dataSource!: MatTableDataSource<any>;
 
@@ -46,7 +45,8 @@ export class ActivityComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -59,7 +59,7 @@ export class ActivityComponent implements OnInit {
   }
 
   CreateTeacher() {
-     this.dialog.open(SubmitActComponent,  { 
+     this.dialog.open(ScoreComponent,  { 
       width: '70vh',
       maxWidth: '90vw',
     }).afterClosed().subscribe(res=>{
@@ -70,16 +70,18 @@ export class ActivityComponent implements OnInit {
     }) 
   }
 
-  act: any = [];
+
   ShowActivity(){
-    this.http.getrequest('ShowActivity', '', '').subscribe((res:any)=>{
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.http.getrequest('StudentAnswer/'+id, '', '').subscribe((res:any)=>{
       // console.log(res);
-      this.act = res;
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.paginator = this.paginator;
     })
   }
 
   Update(row: any){
-    this.dialog.open(SubmitActComponent,  { 
+    this.dialog.open(ScoreComponent,  { 
       width: '70vh',
       maxWidth: '90vw',
       data: row,
@@ -108,9 +110,5 @@ export class ActivityComponent implements OnInit {
       }
 })
 
-  }
-
-  ViewScore(id: any){
-    this.router.navigateByUrl('student/view-score/'+id);
   }
 }

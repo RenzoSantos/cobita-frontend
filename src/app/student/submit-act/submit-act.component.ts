@@ -5,24 +5,36 @@ import { Router } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
-  selector: 'app-activity-handler',
-  templateUrl: './activity-handler.component.html',
-  styleUrls: ['./activity-handler.component.scss']
+  selector: 'app-submit-act',
+  templateUrl: './submit-act.component.html',
+  styleUrls: ['./submit-act.component.scss']
 })
-export class ActivityHandlerComponent implements OnInit {
+export class SubmitActComponent implements OnInit {
 
   editButton: string = 'create';
   isloading = false;
-
+  id: any
+  name: any;
+  mname : any;
+  lname : any;
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpService,
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public edit: any,
-    private Editdialog: MatDialogRef<ActivityHandlerComponent> 
+    private Editdialog: MatDialogRef<SubmitActComponent> 
   ) { }
 
   ngOnInit(): void {
+
+    let user = localStorage.getItem('user') as unknown as string;
+    let user_data: any = JSON.parse(user);
+    this.id = user_data.id,
+    this.name = user_data.name,
+    this.mname = user_data.mname,
+    this.lname = user_data.lname,
+    // console.log(this.id)
+
     this.ShowPost();
     if(this.edit){
       this.editButton = "update";
@@ -36,13 +48,20 @@ export class ActivityHandlerComponent implements OnInit {
         // grade: this.edit.grade,
       })
     }
+;
   }
 
   formGroup: FormGroup = this.formBuilder.group({
+    activity_id:[''],
+    student_id:[''],
+    name: [''],
+    mname: [''],
+    lname: [''],
     activity: ['', Validators.required],
     detail: ['', Validators.required],
     output: ['', Validators.required],
     points: ['', Validators.required],
+    answer: ['', Validators.required],
     teacher_id: [''],
     section: [''],
     grade: [''],
@@ -51,7 +70,7 @@ export class ActivityHandlerComponent implements OnInit {
   CreatePost(){
     if(!this.edit){
     if(this.formGroup.valid){
-      this.http.postrequest('CreateActivity','',this.formGroup.value,).subscribe((res:any)=>{
+      this.http.postrequest('SubmitActivity','',this.formGroup.value,).subscribe((res:any)=>{
         // console.log(res);
         this.formGroup.reset();
         this.Editdialog.close('create');
@@ -64,7 +83,12 @@ export class ActivityHandlerComponent implements OnInit {
   }
   }
   UpdatePost(){
-    this.http.putrequest('EditActivity/',this.edit.id, this.formGroup.value).subscribe((res: any)=>{
+    this.formGroup.patchValue({
+      activity_id: this.edit.id,
+      student_id : this.id,
+      name : this.name + ' ' + this.mname+ ' ' + this.lname ,
+    });
+    this.http.postrequest('SubmitActivity', '', this.formGroup.value).subscribe((res: any)=>{
       this.formGroup.reset();
       this.Editdialog.close('update');
       this.ShowPost()
@@ -78,5 +102,4 @@ export class ActivityHandlerComponent implements OnInit {
       // console.log(res);
     })
   }
-
 }

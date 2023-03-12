@@ -9,23 +9,32 @@
                     <mat-form-field appearance="outline" >
     
                         <mat-label>Activity:</mat-label>
-                        <input matInput type="text" class="example-right-align" formControlName="activity">
+                        <mat-icon matPrefix>lock</mat-icon>
+                        <input matInput type="text" class="example-right-align" formControlName="activity"  readonly >
                       </mat-form-field>
                     
                     <mat-form-field appearance="outline" >
                            <mat-label>Instruction:</mat-label>
-                           <input matInput type="text" class="example-right-align" formControlName="detail">
+                           <mat-icon matPrefix>lock</mat-icon>
+                           <input matInput  type="text" readonly class="example-right-align" formControlName="detail">
                         </mat-form-field>
 
                  <mat-form-field appearance="outline" >                     
                         <mat-label>Output:</mat-label>
-                        <input matInput type="text" class="example-right-align" formControlName="output">
+                        <mat-icon matPrefix>lock</mat-icon>
+                        <input matInput type="text" class="example-right-align" formControlName="output" readonly >
                       </mat-form-field>
                     
                     <mat-form-field appearance="outline" >
                            <mat-label>Points:</mat-label>
-                           <input matInput type="text" class="example-right-align" formControlName="points">
+                           <mat-icon matPrefix>lock</mat-icon>
+                           <input matInput type="text" class="example-right-align" formControlName="points" readonly >
                         </mat-form-field>
+
+                    <mat-form-field appearance="outline" >
+                            <mat-label>Answer:</mat-label>
+                            <input matInput type="text" class="example-right-align" formControlName="answer">
+                         </mat-form-field>
                     
                     <button mat-raised-button color="primary" [disabled]="formGroup.invalid || isloading" [style.visibility]="isloading ? 'hidden' : 'visible'" class="btn" color="primary" (click)=" CreatePost()">
                         <div class="loader" *ngIf="isloading">

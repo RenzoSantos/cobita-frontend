@@ -8,6 +8,8 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { TeacherIdeComponent } from './teacher-ide/teacher-ide.component';
 import { MaterialModules } from '../materials.module.ts/materials.module';
 import { ActivityHandlerComponent } from './activity-handler/activity-handler.component';
+import { StudentAnswerComponent } from './student-answer/student-answer.component';
+import { ScoreComponent } from './score/score.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { ActivityHandlerComponent } from './activity-handler/activity-handler.co
     StudentListComponent,
     ActivitiesComponent,
     TeacherIdeComponent,
-    ActivityHandlerComponent
+    ActivityHandlerComponent,
+    StudentAnswerComponent,
+    ScoreComponent
   ],
   imports: [
     CommonModule,

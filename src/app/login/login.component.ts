@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         this.isloading = false;
         localStorage.setItem('token', res.token);
         localStorage.setItem('user_type', res.user.user_type); 
-        localStorage.setItem('user', JSON.stringify(res.user.user_type)); 
+        localStorage.setItem('user', JSON.stringify(res.user)); 
 
         switch (res.user.user_type) {
           case 'Admin':

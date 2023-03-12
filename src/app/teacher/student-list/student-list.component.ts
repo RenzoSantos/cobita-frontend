@@ -58,7 +58,7 @@ export class StudentListComponent implements OnInit {
 
   ShowTeacher(){
     this.http.getrequest('ShowStudent', '', '').subscribe((res:any)=>{
-      console.log(res);
+      // console.log(res);
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
     })

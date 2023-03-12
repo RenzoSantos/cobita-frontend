@@ -1,23 +1,21 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
+import { ScoreComponent } from 'src/app/teacher/score/score.component';
 import Swal from 'sweetalert2';
-import { SubmitActComponent } from '../submit-act/submit-act.component';
-
 
 
 @Component({
-  selector: 'app-activity',
-  templateUrl: './activity.component.html',
-  styleUrls: ['./activity.component.scss']
+  selector: 'app-view-score',
+  templateUrl: './view-score.component.html',
+  styleUrls: ['./view-score.component.scss']
 })
-export class ActivityComponent implements OnInit {
-  displayedColumns: string[] = [ 'number', 'activity','detail','output','points','score','action',];
+export class ViewScoreComponent implements OnInit {
+  displayedColumns: string[] = [ 'number', 'activity','detail','output','points','score'];
 
   dataSource!: MatTableDataSource<any>;
 
@@ -46,7 +44,8 @@ export class ActivityComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -59,7 +58,7 @@ export class ActivityComponent implements OnInit {
   }
 
   CreateTeacher() {
-     this.dialog.open(SubmitActComponent,  { 
+     this.dialog.open(ScoreComponent,  { 
       width: '70vh',
       maxWidth: '90vw',
     }).afterClosed().subscribe(res=>{
@@ -70,16 +69,17 @@ export class ActivityComponent implements OnInit {
     }) 
   }
 
-  act: any = [];
+
   ShowActivity(){
-    this.http.getrequest('ShowActivity', '', '').subscribe((res:any)=>{
+    this.http.getrequest('ViewAnswer', '', '').subscribe((res:any)=>{
       // console.log(res);
-      this.act = res;
+      this.dataSource = new MatTableDataSource(res);
+      this.dataSource.paginator = this.paginator;
     })
   }
 
   Update(row: any){
-    this.dialog.open(SubmitActComponent,  { 
+    this.dialog.open(ScoreComponent,  { 
       width: '70vh',
       maxWidth: '90vw',
       data: row,
@@ -108,9 +108,5 @@ export class ActivityComponent implements OnInit {
       }
 })
 
-  }
-
-  ViewScore(id: any){
-    this.router.navigateByUrl('student/view-score/'+id);
   }
 }
