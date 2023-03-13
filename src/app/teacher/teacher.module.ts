@@ -10,6 +10,7 @@ import { MaterialModules } from '../materials.module.ts/materials.module';
 import { ActivityHandlerComponent } from './activity-handler/activity-handler.component';
 import { StudentAnswerComponent } from './student-answer/student-answer.component';
 import { ScoreComponent } from './score/score.component';
+import { CreatePostComponent } from './create-post/create-post.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ScoreComponent } from './score/score.component';
     TeacherIdeComponent,
     ActivityHandlerComponent,
     StudentAnswerComponent,
-    ScoreComponent
+    ScoreComponent,
+    CreatePostComponent
   ],
   imports: [
     CommonModule,

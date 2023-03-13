@@ -17,14 +17,16 @@ export class StudentComponent implements OnInit {
     map(result => result.matches),
     shareReplay()
   );
-
+  record: any;
   constructor(
     private breakpointObserver: BreakpointObserver,
     private router: Router,
   ) { }
 
   ngOnInit(): void {
-    
+    let user = localStorage.getItem('user') as unknown as string;
+    let user_data: any = JSON.parse(user);
+    this.record = user_data.name + ' ' + user_data.mname + ' ' + user_data.lname;
   }
   
   logout(){

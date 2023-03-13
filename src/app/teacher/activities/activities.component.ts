@@ -28,6 +28,7 @@ export class ActivitiesComponent implements OnInit {
 
   hide = true;
   isloading = false;
+  id: any;
 
     //CURRENT PAGE OF TABLE
     Page = 1;
@@ -49,6 +50,11 @@ export class ActivitiesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    let user = localStorage.getItem('user') as unknown as string;
+    let user_data: any = JSON.parse(user);
+    this.id = user_data.id,
+
     this.ShowActivity();
   }
 
@@ -63,14 +69,13 @@ export class ActivitiesComponent implements OnInit {
       maxWidth: '90vw',
     }).afterClosed().subscribe(res=>{
       if(res === 'create'){
-      //upadating or refreshing the page
       this.ShowActivity();
       }
     }) 
   }
 
   ShowActivity(){
-    this.http.getrequest('ShowActivity', '', '').subscribe((res:any)=>{
+    this.http.getrequest('ShowActivity/', this.id , '').subscribe((res:any)=>{
       // console.log(res);
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
@@ -84,7 +89,6 @@ export class ActivitiesComponent implements OnInit {
       data: row,
     }).afterClosed().subscribe(res=>{
       if(res === 'update'){
-      //upadating or refreshing the page
       this.ShowActivity();
       }
     }) 

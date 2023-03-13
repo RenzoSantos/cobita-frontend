@@ -72,7 +72,7 @@ export class ActivityComponent implements OnInit {
 
   act: any = [];
   ShowActivity(){
-    this.http.getrequest('ShowActivity', '', '').subscribe((res:any)=>{
+    this.http.getrequest('ShowAllActivity', '', '').subscribe((res:any)=>{
       // console.log(res);
       this.act = res;
     })

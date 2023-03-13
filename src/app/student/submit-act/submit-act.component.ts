@@ -98,7 +98,7 @@ export class SubmitActComponent implements OnInit {
   }
   
   ShowPost(){
-    this.http.getrequest('ShowActivity', '', '').subscribe((res:any)=>{
+    this.http.getrequest('ShowAllActivity', '', '').subscribe((res:any)=>{
       // console.log(res);
     })
   }

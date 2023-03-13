@@ -5,9 +5,9 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { CreatePostComponent } from 'src/app/admin/create-post/create-post.component';
 import { HttpService } from 'src/app/services/http.service';
 import Swal from 'sweetalert2';
+import { CreatePostComponent } from '../create-post/create-post.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
 
   hide = true;
   isloading = false;
-
+  id: any;
     //CURRENT PAGE OF TABLE
     Page = 1;
 
@@ -49,6 +49,11 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    let user = localStorage.getItem('user') as unknown as string;
+    let user_data: any = JSON.parse(user);
+    this.id = user_data.id,
+
     this.ShowPost();
     this.UserCount();
   }
@@ -72,7 +77,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ShowPost(){
-    this.http.getrequest('ShowAnnouncement', '', '').subscribe((res:any)=>{
+    this.http.getrequest('TeacherAnnouncement/', this.id, '').subscribe((res:any)=>{
       // console.log(res);
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;

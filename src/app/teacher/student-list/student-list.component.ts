@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./student-list.component.scss']
 })
 export class StudentListComponent implements OnInit {
-  displayedColumns: string[] = [ 'number', 'student','action',];
+  displayedColumns: string[] = [ 'number', 'student', 'email','action',];
 
   dataSource!: MatTableDataSource<any>;
 

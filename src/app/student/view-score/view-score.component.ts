@@ -27,7 +27,7 @@ export class ViewScoreComponent implements OnInit {
 
   hide = true;
   isloading = false;
-
+  id: any
     //CURRENT PAGE OF TABLE
     Page = 1;
 
@@ -49,6 +49,11 @@ export class ViewScoreComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    let user = localStorage.getItem('user') as unknown as string;
+    let user_data: any = JSON.parse(user);
+    this.id = user_data.id,
+
     this.ShowActivity();
   }
 
@@ -71,7 +76,7 @@ export class ViewScoreComponent implements OnInit {
 
 
   ShowActivity(){
-    this.http.getrequest('ViewAnswer', '', '').subscribe((res:any)=>{
+    this.http.getrequest('ViewAnswer/', this.id, '').subscribe((res:any)=>{
       // console.log(res);
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;

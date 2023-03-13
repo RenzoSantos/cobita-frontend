@@ -46,8 +46,8 @@
         </ng-container>
 
         <ng-container matColumnDef="score">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Score</th>
-          <td mat-cell *matCellDef="let row"> {{row.score}}</td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header><strong> Score</strong></th>
+          <td mat-cell *matCellDef="let row"><strong>{{row.score}} </strong> </td>
         </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

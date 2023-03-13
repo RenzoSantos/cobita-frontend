@@ -40,7 +40,8 @@ export class ScoreComponent implements OnInit {
     if(this.edit){
       this.editButton = "update";
       this.formGroup.patchValue({
-       activity_id: this.edit.id,
+        student_id: this.edit.student_id,
+        activity_id: this.edit.activity_id,
         name: this.edit.name,
         activity: this.edit.activity,
         detail: this.edit.detail,
@@ -88,11 +89,6 @@ export class ScoreComponent implements OnInit {
   }
   }
   UpdatePost(){
-    this.formGroup.patchValue({
-      // activity_id: this.edit.id,
-      student_id : this.id,
-      // name : this.name + ' ' + this.mname+ ' ' + this.lname ,
-    });
     this.http.putrequest('ScoreActivity/', this.edit.id, this.formGroup.value).subscribe((res: any)=>{
       this.formGroup.reset();
       this.Editdialog.close('update');
